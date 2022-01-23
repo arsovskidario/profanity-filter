@@ -32,7 +32,7 @@ public class ProfanityFilterController {
     }
 
     @PostMapping(value = "/filter/message")
-    public ResponseEntity<Object> filterUserMessage(@RequestBody ProfanityFilterRequest request) throws Exception {
+    public ResponseEntity<ProfanityFilterResponse> filterUserMessage(@RequestBody ProfanityFilterRequest request) throws Exception {
         if (request == null || request.getUserId() == null || request.getUserMessage() == null) {
             logger.error("Information missing when requesting service!");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
